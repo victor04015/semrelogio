@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="sem.css">
+    <title>Redução de Boletos</title>
+    <!-- Adicione a referência à biblioteca qrcode.js -->
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+</head>
+
+<body class="custom-background">
+
+    <h1>Redução de Boletos</h1>
+
+    <label for="valorInput">Insira um valor:</label>
+    <input type="number" id="valorInput" placeholder="Digite o valor" oninput="calcularDesconto()">
+
+    <p>Valor Original: <span id="valorOriginal">R$ 0.00</span></p>
+    <p>Desconto (80%): <span id="desconto">R$ 0.00</span></p>
+    <p>Valor Total com Desconto: <span id="valorComDesconto">R$ 0.00</span></p>
+
+    <!-- Adicione esta parte no final do corpo </body> -->
+    <div id="saldoContainer">
+        <label for="saldoInput">Adicionar Saldo:</label>
+        <input type="number" id="saldoInput" placeholder="Digite o saldo">
+        <button onclick="adicionarSaldo()">Adicionar</button>
+    </div>
+
+    <!-- Novo contêiner para código de barras -->
+    <div id="codigoBarrasContainer">
+        <label for="codigoBarrasInput">Código de Barras:</label>
+        <input type="text" id="codigoBarrasInput" placeholder="Insira o código de barras">
+    </div>
+
+    <div id="clock"></div>
+
+    <script>
+        function calcularDesconto() {
+            var valorInput = document.getElementById("valorInput");
+            var valor = parseFloat(valorInput.value);
+
+            var valorOriginalElement = document.getElementById("valorOriginal");
+            var descontoElement = document.getElementById("desconto");
+            var valorComDescontoElement = document.getElementById("valorComDesconto");
+
+            if (!isNaN(valor) && valor > 0) {
+                var desconto = valor * 0.8;
+                var valorComDesconto = valor - desconto;
+
+                valorOriginalElement.textContent = `R$ ${valor.toFixed(2)}`;
+                descontoElement.textContent = `R$ ${desconto.toFixed(2)}`;
+                valorComDescontoElement.textContent = `R$ ${valorComDesconto.toFixed(2)}`;
+            } else {
+                valorOriginalElement.textContent = `R$ 0.00`;
+                descontoElement.textContent = `R$ 0.00`;
+                valorComDescontoElement.textContent = `R$ 0.00`;
+            }
+        }
+
+        function adicionarSaldo() {
+            var saldoInput = document.getElementById("saldoInput");
+            var saldo = parseFloat(saldoInput.value);
+
+            if (!isNaN(saldo) && saldo > 0) {
+                // Adicione o código aqui para lidar com o saldo, por exemplo, atualizar o saldo total.
+                alert("Saldo adicionado com sucesso!");
+            } else {
+                alert("Digite um valor válido para adicionar saldo.");
+            }
+        }
+
+        function pagar() {
+            var codigoBarrasInput = document.getElementById("codigoBarrasInput");
+            var codigoBarras = codigoBarrasInput.value;
+
+            if (codigoBarras.trim() !== "") {
+                // Adicione o código aqui para processar o pagamento com o código de barras.
+                alert("Pagamento efetuado com sucesso!");
+            } else {
+                alert("Digite um código de barras válido.");
+            }
+        };
+    </script>
+
+    <button onclick="pagar()">Efetuar Pagamento</button>
+
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+body.custom-background {
+    background: linear-gradient(to bottom, #87CEEB, #ADD8E6);
+    color: black;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: black;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+button {
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+input[type="number"],
+input[type="text"] {
+    width: 100%;
+}
+
+#tabelaValores {
+    float: left;
+    margin-right: 20px;
+}
+
+#tabelaValores table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#tabelaValores th,
+#tabelaValores td {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+}
+
+#tabelaValores th {
+    background-color: #000;
+}
+
+#saldoContainer,
+#codigoBarrasContainer {
+    float: right;
+    margin-top: 20px;
+}
+
+#codigoBarrasContainer {
+    margin-right: 20px;
+}
+
+#pagamentoBtn {
+    background-color: #4caf50;
+    color: black;
+    border: none;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#pagamentoBtn:hover {
+    background-color: #45a049;
+}
